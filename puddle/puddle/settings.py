@@ -34,13 +34,14 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))  # Ensure .env file is in y
 
 # Security settings
 SECRET_KEY = env('SECRET_KEY')
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = env.bool('DEBUG', default=True)
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
-# Database configuration
+# Database configuration (use default SQLite database if DATABASE_URL is not provided)
 DATABASES = {
     'default': env.db(default='sqlite:///db.sqlite3'),
 }
+
 
 
 
