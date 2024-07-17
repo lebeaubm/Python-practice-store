@@ -39,7 +39,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
 # Database configuration
 DATABASES = {
-    'default': env.db(),
+    'default': env.db(default='sqlite:///db.sqlite3'),
 }
 
 
