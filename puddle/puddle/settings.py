@@ -25,22 +25,27 @@ SECRET_KEY = 'django-insecure-wj(&cgelo6)u85e+9w)&*hl8nloj4k1samif-6ulpi40x()kkl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-import environ
 import os
+import environ
 
 # Initialize environment variables
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))  # Ensure .env file is in your project root
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+
+# Read .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Security settings
 SECRET_KEY = env('SECRET_KEY')
-DEBUG = env.bool('DEBUG', default=True)
+DEBUG = env.bool('DEBUG', default=False)
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
-# Database configuration (use default SQLite database if DATABASE_URL is not provided)
+# Database configuration
 DATABASES = {
     'default': env.db(default='sqlite:///db.sqlite3'),
 }
+
 
 
 
