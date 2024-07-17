@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\lebea\OneDrive\Desktop\Code\python\puddle\env
+set VIRTUAL_ENV=C:\Users\lebea\OneDrive\Desktop\Git\New folder\Python-practice-store\Python-practice-store\env
 
 if not defined PROMPT set PROMPT=$P$G
 
